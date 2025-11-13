@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title> - Documentation</title>
+    <!-- <meta name="description" content="TODO populate this based on the module's description"> -->
+    <meta name="viewport" content="width=device-width" />
+    <base href="/roc-maybe/0.1.0/" />
+    <script type="text/javascript" src="search.js" defer></script>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="/favicon.svg" />
+    <!-- Safari ignores rel="icon" and only respects rel="mask-icon". It will render the SVG with
+    fill="#000" unless this `color` attribute here is hardcoded (not a CSS `var()`) to override it.
+  -->
+    <link rel="mask-icon" href="/favicon.svg" color="#7d59dd" />
+    <link rel="prefetch" href="Maybe"/>
+</head>
+
+<body>
+    <nav id="sidebar-nav">
+        <div class="pkg-and-logo">
+            <a class="logo" href="/" aria-labelledby="logo-link">
+                <svg viewBox="0 -6 51 58" fill="none" xmlns="http://www.w3.org/2000/svg" aria-labelledby="logo-link"
+                    role="img">
+                    <title id="logo-link">Return to Roc packages</title>
+                    <polygon role="presentation"
+                        points="0,0 23.8834,3.21052 37.2438,19.0101 45.9665,16.6324 50.5,22 45,22 44.0315,26.3689 26.4673,39.3424 27.4527,45.2132 17.655,53 23.6751,22.7086" />
+                </svg>
+            </a>
+            <h1 class="pkg-full-name" ><a href="/roc-maybe/0.1.0/" >Documentation</a></h1>
+            <button class="menu-toggle" aria-label="Toggle sidebar">
+                <svg viewBox="0 0 72 72" id="emoji" xmlns="http://www.w3.org/2000/svg" fill="currentcolor">
+                    <g id="SVGRepo_iconCarrier">
+                        <g id="color"></g>
+                        <g id="hair"></g>
+                        <g id="skin"></g>
+                        <g id="skin-shadow"></g>
+                        <g id="line">
+                            <line x1="16" x2="56" y1="26" y2="26" fill="none" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2">
+                            </line>
+                            <line x1="16" x2="56" y1="36" y2="36" fill="none" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2">
+                            </line>
+                            <line x1="16" x2="56" y1="46" y2="46" fill="none" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2">
+                            </line>
+                        </g>
+                    </g>
+                </svg>
+            </button>
+        </div>
+        <div class="module-links-container">
+            <div class="module-links">
+                <div class="sidebar-entry" ><a class="sidebar-module-link" href="Maybe" data-module-name="Maybe" ><span >Maybe</span><button class="entry-toggle" >▶</button></a><div class="sidebar-sub-entries" ><a href="Maybe#Maybe" >Maybe</a><a href="Maybe#map" >map</a><a href="Maybe#map!" >map!</a><a href="Maybe#join" >join</a><a href="Maybe#and_then" >and_then</a><a href="Maybe#and_then!" >and_then!</a><a href="Maybe#map_try!" >map_try!</a><a href="Maybe#map_try" >map_try</a><a href="Maybe#with_default" >with_default</a><a href="Maybe#to_result" >to_result</a><a href="Maybe#from_result" >from_result</a><a href="Maybe#to_option" >to_option</a><a href="Maybe#from_option" >from_option</a><a href="Maybe#keep_justs" >keep_justs</a><a href="Maybe#or_else" >or_else</a><a href="Maybe#is_just" >is_just</a><a href="Maybe#is_nothing" >is_nothing</a><a href="Maybe#filter" >filter</a><a href="Maybe#filter!" >filter!</a><a href="Maybe#map2" >map2</a><a href="Maybe#map2!" >map2!</a><a href="Maybe#map3" >map3</a><a href="Maybe#map3!" >map3!</a><a href="Maybe#map4" >map4</a><a href="Maybe#map4!" >map4!</a><a href="Maybe#combine" >combine</a><a href="Maybe#traverse" >traverse</a><a href="Maybe#traverse!" >traverse!</a></div></div>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <form id="module-search-form">
+            <button class="menu-toggle" aria-label="Toggle sidebar">
+                <svg viewBox="0 0 72 72" id="emoji" xmlns="http://www.w3.org/2000/svg" fill="currentcolor">
+                    <g id="SVGRepo_iconCarrier">
+                        <g id="color"></g>
+                        <g id="hair"></g>
+                        <g id="skin"></g>
+                        <g id="skin-shadow"></g>
+                        <g id="line">
+                            <line x1="16" x2="56" y1="26" y2="26" fill="none" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2">
+                            </line>
+                            <line x1="16" x2="56" y1="36" y2="36" fill="none" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2">
+                            </line>
+                            <line x1="16" x2="56" y1="46" y2="46" fill="none" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2">
+                            </line>
+                        </g>
+                    </g>
+                </svg>
+            </button>
+            <input id="module-search" aria-labelledby="search-label" type="text"
+                placeholder="Search Documentation" role="combobox" aria-autocomplete="list"
+                aria-expanded="false" aria-controls="search-type-ahead" />
+            <label for="module-search" id="search-label">(press
+                <span id="search-shortcut-key" aria-hidden="true">s</span>)</label>
+            <!-- Magnifying Glass icon -->
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="search-icon"
+                xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 512 512"
+                xml:space="preserve">
+                <g>
+                    <path d="M449.803,62.197C408.443,20.807,353.85-0.037,299.646-0.006C245.428-0.037,190.85,20.807,149.49,62.197
+		C108.1,103.557,87.24,158.15,87.303,212.338c-0.047,37.859,10.359,75.766,30.547,109.359L15.021,424.525
+		c-20.016,20.016-20.016,52.453,0,72.469c20,20.016,52.453,20.016,72.453,0L190.318,394.15
+		c33.578,20.203,71.5,30.594,109.328,30.547c54.203,0.047,108.797-20.797,150.156-62.188
+		c41.375-41.359,62.234-95.938,62.188-150.172C512.053,158.15,491.178,103.557,449.803,62.197z M391.818,304.541
+		c-25.547,25.531-58.672,38.125-92.172,38.188c-33.5-0.063-66.609-12.656-92.188-38.188c-25.531-25.578-38.125-58.688-38.188-92.203
+		c0.063-33.484,12.656-66.609,38.188-92.172c25.578-25.531,58.688-38.125,92.188-38.188c33.5,0.063,66.625,12.656,92.188,38.188
+		c25.531,25.563,38.125,58.688,38.188,92.172C429.959,245.854,417.365,278.963,391.818,304.541z"></path>
+                </g>
+            </svg>
+            <ul id="search-type-ahead" role="listbox" aria-label="Search Results" class="hidden">
+                <li role="option" ><a href="Maybe#Maybe" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >Maybe</span><span class="type-ahead-signature" > : 
+    [
+        Nothing,
+        Just a
+    ]</span></a></li><li role="option" ><a href="Maybe#map" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >map</span><span class="type-ahead-signature" > : Maybe a, (a -> b) -> Maybe b</span></a></li><li role="option" ><a href="Maybe#map!" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >map!</span><span class="type-ahead-signature" > : Maybe a, (a => b) => Maybe b</span></a></li><li role="option" ><a href="Maybe#join" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >join</span><span class="type-ahead-signature" > : Maybe (Maybe a) -> Maybe a</span></a></li><li role="option" ><a href="Maybe#and_then" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >and_then</span><span class="type-ahead-signature" > : Maybe a, (a -> Maybe b) -> Maybe b</span></a></li><li role="option" ><a href="Maybe#and_then!" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >and_then!</span><span class="type-ahead-signature" > : Maybe a, (a => Maybe b) => Maybe b</span></a></li><li role="option" ><a href="Maybe#map_try!" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >map_try!</span><span class="type-ahead-signature" > : Maybe a, (a => Result b e) => Result (Maybe b) e</span></a></li><li role="option" ><a href="Maybe#map_try" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >map_try</span><span class="type-ahead-signature" > : Maybe a, (a -> Result b e) -> Result (Maybe b) e</span></a></li><li role="option" ><a href="Maybe#with_default" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >with_default</span><span class="type-ahead-signature" > : Maybe a, a -> a</span></a></li><li role="option" ><a href="Maybe#to_result" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >to_result</span><span class="type-ahead-signature" > : Maybe a, e -> Result a e</span></a></li><li role="option" ><a href="Maybe#from_result" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >from_result</span><span class="type-ahead-signature" > : Result a b -> Maybe a</span></a></li><li role="option" ><a href="Maybe#to_option" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >to_option</span><span class="type-ahead-signature" > : Maybe a -> Option a</span></a></li><li role="option" ><a href="Maybe#from_option" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >from_option</span><span class="type-ahead-signature" > : Option a -> Maybe a</span></a></li><li role="option" ><a href="Maybe#keep_justs" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >keep_justs</span><span class="type-ahead-signature" > : List (Maybe a) -> List a</span></a></li><li role="option" ><a href="Maybe#or_else" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >or_else</span><span class="type-ahead-signature" > : Maybe a, Maybe a -> Maybe a</span></a></li><li role="option" ><a href="Maybe#is_just" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >is_just</span><span class="type-ahead-signature" > : Maybe a -> Bool</span></a></li><li role="option" ><a href="Maybe#is_nothing" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >is_nothing</span><span class="type-ahead-signature" > : Maybe a -> Bool</span></a></li><li role="option" ><a href="Maybe#filter" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >filter</span><span class="type-ahead-signature" > : Maybe a, (a -> Bool) -> Maybe a</span></a></li><li role="option" ><a href="Maybe#filter!" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >filter!</span><span class="type-ahead-signature" > : Maybe a, (a => Bool) => Maybe a</span></a></li><li role="option" ><a href="Maybe#map2" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >map2</span><span class="type-ahead-signature" > : 
+    Maybe a, 
+    Maybe b, 
+    (a, b -> c)
+    -> Maybe c</span></a></li><li role="option" ><a href="Maybe#map2!" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >map2!</span><span class="type-ahead-signature" > : 
+    Maybe a, 
+    Maybe b, 
+    (a, b => c)
+    => Maybe c</span></a></li><li role="option" ><a href="Maybe#map3" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >map3</span><span class="type-ahead-signature" > : 
+    Maybe a, 
+    Maybe b, 
+    Maybe c,     
+    (a, 
+    b, 
+    c
+    -> d)
+    -> Maybe d</span></a></li><li role="option" ><a href="Maybe#map3!" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >map3!</span><span class="type-ahead-signature" > : 
+    Maybe a, 
+    Maybe b, 
+    Maybe c,     
+    (a, 
+    b, 
+    c
+    => d)
+    => Maybe d</span></a></li><li role="option" ><a href="Maybe#map4" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >map4</span><span class="type-ahead-signature" > : 
+    Maybe a, 
+    Maybe b, 
+    Maybe c, 
+    Maybe d,     
+    (a, 
+    b, 
+    c, 
+    d
+    -> e)
+    -> Maybe e</span></a></li><li role="option" ><a href="Maybe#map4!" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >map4!</span><span class="type-ahead-signature" > : 
+    Maybe a, 
+    Maybe b, 
+    Maybe c, 
+    Maybe d,     
+    (a, 
+    b, 
+    c, 
+    d
+    => e)
+    => Maybe e</span></a></li><li role="option" ><a href="Maybe#combine" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >combine</span><span class="type-ahead-signature" > : List (Maybe a) -> Maybe (List a)</span></a></li><li role="option" ><a href="Maybe#traverse" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >traverse</span><span class="type-ahead-signature" > : List a, (a -> Maybe b) -> Maybe (List b)</span></a></li><li role="option" ><a href="Maybe#traverse!" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >traverse!</span><span class="type-ahead-signature" > : List a, (a => Maybe b) => Maybe (List b)</span></a></li>
+            </ul>
+        </form>
+        <a class="ai-docs-link" title="Documentation in an AI-friendly format" href="llms.txt" ><span style="vertical-align: 2px;">🤖</span> AI docs</a><h2 class="module-name" >Exposed Modules</h2><ul class="index-module-links" ><li ><a href="Maybe" >Maybe</a></li></ul>
+        <footer>
+            <p>Made by people who like to make nice things.</p>
+        </footer>
+    </main>
+</body>
+
+</html>
