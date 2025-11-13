@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Maybe - Documentation</title>
+    <!-- <meta name="description" content="TODO populate this based on the module's description"> -->
+    <meta name="viewport" content="width=device-width" />
+    <base href="/roc-maybe/0.1.0/" />
+    <script type="text/javascript" src="search.js" defer></script>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="/favicon.svg" />
+    <!-- Safari ignores rel="icon" and only respects rel="mask-icon". It will render the SVG with
+    fill="#000" unless this `color` attribute here is hardcoded (not a CSS `var()`) to override it.
+  -->
+    <link rel="mask-icon" href="/favicon.svg" color="#7d59dd" />
+    <link rel="prefetch" href="Maybe"/>
+</head>
+
+<body>
+    <nav id="sidebar-nav">
+        <div class="pkg-and-logo">
+            <a class="logo" href="/" aria-labelledby="logo-link">
+                <svg viewBox="0 -6 51 58" fill="none" xmlns="http://www.w3.org/2000/svg" aria-labelledby="logo-link"
+                    role="img">
+                    <title id="logo-link">Return to Roc packages</title>
+                    <polygon role="presentation"
+                        points="0,0 23.8834,3.21052 37.2438,19.0101 45.9665,16.6324 50.5,22 45,22 44.0315,26.3689 26.4673,39.3424 27.4527,45.2132 17.655,53 23.6751,22.7086" />
+                </svg>
+            </a>
+            <h1 class="pkg-full-name" ><a href="/roc-maybe/0.1.0/" >Documentation</a></h1>
+            <button class="menu-toggle" aria-label="Toggle sidebar">
+                <svg viewBox="0 0 72 72" id="emoji" xmlns="http://www.w3.org/2000/svg" fill="currentcolor">
+                    <g id="SVGRepo_iconCarrier">
+                        <g id="color"></g>
+                        <g id="hair"></g>
+                        <g id="skin"></g>
+                        <g id="skin-shadow"></g>
+                        <g id="line">
+                            <line x1="16" x2="56" y1="26" y2="26" fill="none" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2">
+                            </line>
+                            <line x1="16" x2="56" y1="36" y2="36" fill="none" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2">
+                            </line>
+                            <line x1="16" x2="56" y1="46" y2="46" fill="none" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2">
+                            </line>
+                        </g>
+                    </g>
+                </svg>
+            </button>
+        </div>
+        <div class="module-links-container">
+            <div class="module-links">
+                <div class="sidebar-entry" ><a class="sidebar-module-link" href="Maybe" data-module-name="Maybe" ><span >Maybe</span><button class="entry-toggle" >▶</button></a><div class="sidebar-sub-entries" ><a href="Maybe#Maybe" >Maybe</a><a href="Maybe#map" >map</a><a href="Maybe#map!" >map!</a><a href="Maybe#join" >join</a><a href="Maybe#and_then" >and_then</a><a href="Maybe#and_then!" >and_then!</a><a href="Maybe#map_try!" >map_try!</a><a href="Maybe#map_try" >map_try</a><a href="Maybe#with_default" >with_default</a><a href="Maybe#to_result" >to_result</a><a href="Maybe#from_result" >from_result</a><a href="Maybe#to_option" >to_option</a><a href="Maybe#from_option" >from_option</a><a href="Maybe#keep_justs" >keep_justs</a><a href="Maybe#or_else" >or_else</a><a href="Maybe#is_just" >is_just</a><a href="Maybe#is_nothing" >is_nothing</a><a href="Maybe#filter" >filter</a><a href="Maybe#filter!" >filter!</a><a href="Maybe#map2" >map2</a><a href="Maybe#map2!" >map2!</a><a href="Maybe#map3" >map3</a><a href="Maybe#map3!" >map3!</a><a href="Maybe#map4" >map4</a><a href="Maybe#map4!" >map4!</a><a href="Maybe#combine" >combine</a><a href="Maybe#traverse" >traverse</a><a href="Maybe#traverse!" >traverse!</a></div></div>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <form id="module-search-form">
+            <button class="menu-toggle" aria-label="Toggle sidebar">
+                <svg viewBox="0 0 72 72" id="emoji" xmlns="http://www.w3.org/2000/svg" fill="currentcolor">
+                    <g id="SVGRepo_iconCarrier">
+                        <g id="color"></g>
+                        <g id="hair"></g>
+                        <g id="skin"></g>
+                        <g id="skin-shadow"></g>
+                        <g id="line">
+                            <line x1="16" x2="56" y1="26" y2="26" fill="none" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2">
+                            </line>
+                            <line x1="16" x2="56" y1="36" y2="36" fill="none" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2">
+                            </line>
+                            <line x1="16" x2="56" y1="46" y2="46" fill="none" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2">
+                            </line>
+                        </g>
+                    </g>
+                </svg>
+            </button>
+            <input id="module-search" aria-labelledby="search-label" type="text"
+                placeholder="Search Documentation" role="combobox" aria-autocomplete="list"
+                aria-expanded="false" aria-controls="search-type-ahead" />
+            <label for="module-search" id="search-label">(press
+                <span id="search-shortcut-key" aria-hidden="true">s</span>)</label>
+            <!-- Magnifying Glass icon -->
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="search-icon"
+                xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 512 512"
+                xml:space="preserve">
+                <g>
+                    <path d="M449.803,62.197C408.443,20.807,353.85-0.037,299.646-0.006C245.428-0.037,190.85,20.807,149.49,62.197
+		C108.1,103.557,87.24,158.15,87.303,212.338c-0.047,37.859,10.359,75.766,30.547,109.359L15.021,424.525
+		c-20.016,20.016-20.016,52.453,0,72.469c20,20.016,52.453,20.016,72.453,0L190.318,394.15
+		c33.578,20.203,71.5,30.594,109.328,30.547c54.203,0.047,108.797-20.797,150.156-62.188
+		c41.375-41.359,62.234-95.938,62.188-150.172C512.053,158.15,491.178,103.557,449.803,62.197z M391.818,304.541
+		c-25.547,25.531-58.672,38.125-92.172,38.188c-33.5-0.063-66.609-12.656-92.188-38.188c-25.531-25.578-38.125-58.688-38.188-92.203
+		c0.063-33.484,12.656-66.609,38.188-92.172c25.578-25.531,58.688-38.125,92.188-38.188c33.5,0.063,66.625,12.656,92.188,38.188
+		c25.531,25.563,38.125,58.688,38.188,92.172C429.959,245.854,417.365,278.963,391.818,304.541z"></path>
+                </g>
+            </svg>
+            <ul id="search-type-ahead" role="listbox" aria-label="Search Results" class="hidden">
+                <li role="option" ><a href="Maybe#Maybe" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >Maybe</span><span class="type-ahead-signature" > : 
+    [
+        Nothing,
+        Just a
+    ]</span></a></li><li role="option" ><a href="Maybe#map" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >map</span><span class="type-ahead-signature" > : Maybe a, (a -> b) -> Maybe b</span></a></li><li role="option" ><a href="Maybe#map!" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >map!</span><span class="type-ahead-signature" > : Maybe a, (a => b) => Maybe b</span></a></li><li role="option" ><a href="Maybe#join" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >join</span><span class="type-ahead-signature" > : Maybe (Maybe a) -> Maybe a</span></a></li><li role="option" ><a href="Maybe#and_then" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >and_then</span><span class="type-ahead-signature" > : Maybe a, (a -> Maybe b) -> Maybe b</span></a></li><li role="option" ><a href="Maybe#and_then!" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >and_then!</span><span class="type-ahead-signature" > : Maybe a, (a => Maybe b) => Maybe b</span></a></li><li role="option" ><a href="Maybe#map_try!" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >map_try!</span><span class="type-ahead-signature" > : Maybe a, (a => Result b e) => Result (Maybe b) e</span></a></li><li role="option" ><a href="Maybe#map_try" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >map_try</span><span class="type-ahead-signature" > : Maybe a, (a -> Result b e) -> Result (Maybe b) e</span></a></li><li role="option" ><a href="Maybe#with_default" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >with_default</span><span class="type-ahead-signature" > : Maybe a, a -> a</span></a></li><li role="option" ><a href="Maybe#to_result" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >to_result</span><span class="type-ahead-signature" > : Maybe a, e -> Result a e</span></a></li><li role="option" ><a href="Maybe#from_result" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >from_result</span><span class="type-ahead-signature" > : Result a b -> Maybe a</span></a></li><li role="option" ><a href="Maybe#to_option" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >to_option</span><span class="type-ahead-signature" > : Maybe a -> Option a</span></a></li><li role="option" ><a href="Maybe#from_option" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >from_option</span><span class="type-ahead-signature" > : Option a -> Maybe a</span></a></li><li role="option" ><a href="Maybe#keep_justs" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >keep_justs</span><span class="type-ahead-signature" > : List (Maybe a) -> List a</span></a></li><li role="option" ><a href="Maybe#or_else" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >or_else</span><span class="type-ahead-signature" > : Maybe a, Maybe a -> Maybe a</span></a></li><li role="option" ><a href="Maybe#is_just" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >is_just</span><span class="type-ahead-signature" > : Maybe a -> Bool</span></a></li><li role="option" ><a href="Maybe#is_nothing" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >is_nothing</span><span class="type-ahead-signature" > : Maybe a -> Bool</span></a></li><li role="option" ><a href="Maybe#filter" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >filter</span><span class="type-ahead-signature" > : Maybe a, (a -> Bool) -> Maybe a</span></a></li><li role="option" ><a href="Maybe#filter!" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >filter!</span><span class="type-ahead-signature" > : Maybe a, (a => Bool) => Maybe a</span></a></li><li role="option" ><a href="Maybe#map2" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >map2</span><span class="type-ahead-signature" > : 
+    Maybe a, 
+    Maybe b, 
+    (a, b -> c)
+    -> Maybe c</span></a></li><li role="option" ><a href="Maybe#map2!" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >map2!</span><span class="type-ahead-signature" > : 
+    Maybe a, 
+    Maybe b, 
+    (a, b => c)
+    => Maybe c</span></a></li><li role="option" ><a href="Maybe#map3" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >map3</span><span class="type-ahead-signature" > : 
+    Maybe a, 
+    Maybe b, 
+    Maybe c,     
+    (a, 
+    b, 
+    c
+    -> d)
+    -> Maybe d</span></a></li><li role="option" ><a href="Maybe#map3!" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >map3!</span><span class="type-ahead-signature" > : 
+    Maybe a, 
+    Maybe b, 
+    Maybe c,     
+    (a, 
+    b, 
+    c
+    => d)
+    => Maybe d</span></a></li><li role="option" ><a href="Maybe#map4" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >map4</span><span class="type-ahead-signature" > : 
+    Maybe a, 
+    Maybe b, 
+    Maybe c, 
+    Maybe d,     
+    (a, 
+    b, 
+    c, 
+    d
+    -> e)
+    -> Maybe e</span></a></li><li role="option" ><a href="Maybe#map4!" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >map4!</span><span class="type-ahead-signature" > : 
+    Maybe a, 
+    Maybe b, 
+    Maybe c, 
+    Maybe d,     
+    (a, 
+    b, 
+    c, 
+    d
+    => e)
+    => Maybe e</span></a></li><li role="option" ><a href="Maybe#combine" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >combine</span><span class="type-ahead-signature" > : List (Maybe a) -> Maybe (List a)</span></a></li><li role="option" ><a href="Maybe#traverse" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >traverse</span><span class="type-ahead-signature" > : List a, (a -> Maybe b) -> Maybe (List b)</span></a></li><li role="option" ><a href="Maybe#traverse!" class="type-ahead-link" ><span class="type-ahead-module-name" >Maybe</span><span class="type-ahead-module-dot" >.</span><span class="type-ahead-def-name" >traverse!</span><span class="type-ahead-signature" > : List a, (a => Maybe b) => Maybe (List b)</span></a></li>
+            </ul>
+        </form>
+        <h2 class="module-name" ><a href="/" >Maybe</a></h2><p>A library for working with optional values in Roc. The <code>Maybe</code> type represents a value that might or might not exist.</p>
+<p>Note that Roc has a great type system and using descriptive <a href="https://www.roc-lang.org/tutorial#tag-union-types">tag unions</a>, <a href="https://www.roc-lang.org/tutorial#tags-with-payloads">tags with payloads</a>, and/or <code>Result</code> is usually preferable to <code>Maybe</code>. If you're new to Roc I encourage you to explore those options first. If you still want a <code>Maybe</code>: enjoy!</p>
+<h2>JSON encoding/decoding</h2>
+<p>Want to JSON encode/decode your <code>Maybe</code>? Use <code>Maybe.to_option</code> to get an <code>Option</code> from <a href="https://github.com/lukewilliamboswell/roc-json/"><code>roc-json</code></a> and you're set. <code>Option</code> is an <a href="https://roc-lang.org/tutorial#opaque-types">opaque type</a> which makes it slightly less ergonomic to use, so I tend to work with <code>Maybe</code> until I get to a point where I need JSON encoding/decoding and convert to/from at that boundary.</p>
+<section><h3 id="Maybe" class="entry-name" ><a href="Maybe#Maybe" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor"><!--!
+	Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License -
+	https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+	Copyright 2023 Fonticons, Inc. -->
+	<path
+		d="M562.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L405.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C189.5 251.2 196 330 246 380c56.5 56.5 148 56.5 204.5 0L562.8 267.7zM43.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C57 372 57 321 88.5 289.5L200.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C416.5 260.8 410 182 360 132c-56.5-56.5-148-56.5-204.5 0L43.2 244.3z" />
+</svg></a><code><span class="upperident">Maybe</span><span class="lowerident"> a</span><span class="kw"> :</span><span class="delimiter"> 
+    [</span><span class="upperident">
+        Nothing</span><span class="delimiter">,</span><span class="upperident">
+        Just</span><span class="lowerident"> a</span><span class="delimiter">
+    ]</span></code></h3><p>Represents an optional value of a given type. A <code>Maybe Fruit</code> can be <code>Just Apple</code>, <code>Just Orange</code>, or <code>Nothing</code> for example. Also known as <code>Option</code>.</p>
+</section><section><h3 id="map" class="entry-name" ><a href="Maybe#map" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor"><!--!
+	Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License -
+	https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+	Copyright 2023 Fonticons, Inc. -->
+	<path
+		d="M562.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L405.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C189.5 251.2 196 330 246 380c56.5 56.5 148 56.5 204.5 0L562.8 267.7zM43.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C57 372 57 321 88.5 289.5L200.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C416.5 260.8 410 182 360 132c-56.5-56.5-148-56.5-204.5 0L43.2 244.3z" />
+</svg></a><code><span class="lowerident">map</span><span class="kw"> :</span><span class="upperident"> Maybe</span><span class="lowerident"> a</span><span class="delimiter">,</span><span class="delimiter"> (</span><span class="lowerident">a</span><span class="kw"> -&gt;</span><span class="lowerident"> b</span><span class="delimiter">)</span><span class="kw"> -&gt;</span><span class="upperident"> Maybe</span><span class="lowerident"> b</span></code></h3><p>Transform the value inside a <code>Just</code>, or do nothing if <code>Nothing</code>.</p>
+</section><section><h3 id="map!" class="entry-name" ><a href="Maybe#map!" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor"><!--!
+	Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License -
+	https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+	Copyright 2023 Fonticons, Inc. -->
+	<path
+		d="M562.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L405.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C189.5 251.2 196 330 246 380c56.5 56.5 148 56.5 204.5 0L562.8 267.7zM43.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C57 372 57 321 88.5 289.5L200.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C416.5 260.8 410 182 360 132c-56.5-56.5-148-56.5-204.5 0L43.2 244.3z" />
+</svg></a><code><span class="lowerident">map</span><span class="op">!</span><span class="kw"> :</span><span class="upperident"> Maybe</span><span class="lowerident"> a</span><span class="delimiter">,</span><span class="delimiter"> (</span><span class="lowerident">a</span><span class="kw"> =</span><span class="op">&gt;</span><span class="lowerident"> b</span><span class="delimiter">)</span><span class="kw"> =</span><span class="op">&gt;</span><span class="upperident"> Maybe</span><span class="lowerident"> b</span></code></h3><p>Like <code>map</code>, but with an effectful function.</p>
+</section><section><h3 id="join" class="entry-name" ><a href="Maybe#join" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor"><!--!
+	Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License -
+	https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+	Copyright 2023 Fonticons, Inc. -->
+	<path
+		d="M562.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L405.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C189.5 251.2 196 330 246 380c56.5 56.5 148 56.5 204.5 0L562.8 267.7zM43.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C57 372 57 321 88.5 289.5L200.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C416.5 260.8 410 182 360 132c-56.5-56.5-148-56.5-204.5 0L43.2 244.3z" />
+</svg></a><code><span class="lowerident">join</span><span class="kw"> :</span><span class="upperident"> Maybe</span><span class="delimiter"> (</span><span class="upperident">Maybe</span><span class="lowerident"> a</span><span class="delimiter">)</span><span class="kw"> -&gt;</span><span class="upperident"> Maybe</span><span class="lowerident"> a</span></code></h3><p>Flatten nested <code>Maybe</code>s.</p>
+</section><section><h3 id="and_then" class="entry-name" ><a href="Maybe#and_then" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor"><!--!
+	Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License -
+	https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+	Copyright 2023 Fonticons, Inc. -->
+	<path
+		d="M562.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L405.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C189.5 251.2 196 330 246 380c56.5 56.5 148 56.5 204.5 0L562.8 267.7zM43.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C57 372 57 321 88.5 289.5L200.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C416.5 260.8 410 182 360 132c-56.5-56.5-148-56.5-204.5 0L43.2 244.3z" />
+</svg></a><code><span class="kw">and</span><span class="lowerident">_</span><span class="kw">then</span><span class="kw"> :</span><span class="upperident"> Maybe</span><span class="lowerident"> a</span><span class="delimiter">,</span><span class="delimiter"> (</span><span class="lowerident">a</span><span class="kw"> -&gt;</span><span class="upperident"> Maybe</span><span class="lowerident"> b</span><span class="delimiter">)</span><span class="kw"> -&gt;</span><span class="upperident"> Maybe</span><span class="lowerident"> b</span></code></h3><p>Chain together <code>Maybe</code>-returning functions.
+If the <code>Maybe</code> is <code>Just</code>, applies the function to the value.
+If the <code>Maybe</code> is <code>Nothing</code>, returns <code>Nothing</code> without calling the function.
+This is equivalent to <code>map</code> followed by <code>join</code>, but more efficient.
+Also known as &quot;flatMap&quot; or &quot;bind&quot; in other languages.</p>
+</section><section><h3 id="and_then!" class="entry-name" ><a href="Maybe#and_then!" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor"><!--!
+	Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License -
+	https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+	Copyright 2023 Fonticons, Inc. -->
+	<path
+		d="M562.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L405.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C189.5 251.2 196 330 246 380c56.5 56.5 148 56.5 204.5 0L562.8 267.7zM43.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C57 372 57 321 88.5 289.5L200.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C416.5 260.8 410 182 360 132c-56.5-56.5-148-56.5-204.5 0L43.2 244.3z" />
+</svg></a><code><span class="kw">and</span><span class="lowerident">_</span><span class="kw">then</span><span class="op">!</span><span class="kw"> :</span><span class="upperident"> Maybe</span><span class="lowerident"> a</span><span class="delimiter">,</span><span class="delimiter"> (</span><span class="lowerident">a</span><span class="kw"> =</span><span class="op">&gt;</span><span class="upperident"> Maybe</span><span class="lowerident"> b</span><span class="delimiter">)</span><span class="kw"> =</span><span class="op">&gt;</span><span class="upperident"> Maybe</span><span class="lowerident"> b</span></code></h3><p>Like <code>and_then</code>, but with an effectful function.
+Also known as &quot;flatMap&quot; or &quot;bind&quot; in other languages.</p>
+</section><section><h3 id="map_try!" class="entry-name" ><a href="Maybe#map_try!" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor"><!--!
+	Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License -
+	https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+	Copyright 2023 Fonticons, Inc. -->
+	<path
+		d="M562.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L405.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C189.5 251.2 196 330 246 380c56.5 56.5 148 56.5 204.5 0L562.8 267.7zM43.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C57 372 57 321 88.5 289.5L200.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C416.5 260.8 410 182 360 132c-56.5-56.5-148-56.5-204.5 0L43.2 244.3z" />
+</svg></a><code><span class="lowerident">map</span><span class="lowerident">_</span><span class="lowerident">try</span><span class="op">!</span><span class="kw"> :</span><span class="upperident"> Maybe</span><span class="lowerident"> a</span><span class="delimiter">,</span><span class="delimiter"> (</span><span class="lowerident">a</span><span class="kw"> =</span><span class="op">&gt;</span><span class="upperident"> Result</span><span class="lowerident"> b</span><span class="lowerident"> e</span><span class="delimiter">)</span><span class="kw"> =</span><span class="op">&gt;</span><span class="upperident"> Result</span><span class="delimiter"> (</span><span class="upperident">Maybe</span><span class="lowerident"> b</span><span class="delimiter">)</span><span class="lowerident"> e</span></code></h3><p>Like <code>map_try</code>, but with an effectful function.
+See also: <code>traverse</code> for lists, <code>map_try</code> for the pure version.</p>
+</section><section><h3 id="map_try" class="entry-name" ><a href="Maybe#map_try" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor"><!--!
+	Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License -
+	https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+	Copyright 2023 Fonticons, Inc. -->
+	<path
+		d="M562.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L405.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C189.5 251.2 196 330 246 380c56.5 56.5 148 56.5 204.5 0L562.8 267.7zM43.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C57 372 57 321 88.5 289.5L200.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C416.5 260.8 410 182 360 132c-56.5-56.5-148-56.5-204.5 0L43.2 244.3z" />
+</svg></a><code><span class="lowerident">map</span><span class="lowerident">_</span><span class="lowerident">try</span><span class="kw"> :</span><span class="upperident"> Maybe</span><span class="lowerident"> a</span><span class="delimiter">,</span><span class="delimiter"> (</span><span class="lowerident">a</span><span class="kw"> -&gt;</span><span class="upperident"> Result</span><span class="lowerident"> b</span><span class="lowerident"> e</span><span class="delimiter">)</span><span class="kw"> -&gt;</span><span class="upperident"> Result</span><span class="delimiter"> (</span><span class="upperident">Maybe</span><span class="lowerident"> b</span><span class="delimiter">)</span><span class="lowerident"> e</span></code></h3><p>Transform the value inside a <code>Just</code> using a fallible function, preserving the <code>Maybe</code> context.
+See also: <code>traverse</code> for lists, <code>map_try!</code> for the effectful version.</p>
+</section><section><h3 id="with_default" class="entry-name" ><a href="Maybe#with_default" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor"><!--!
+	Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License -
+	https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+	Copyright 2023 Fonticons, Inc. -->
+	<path
+		d="M562.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L405.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C189.5 251.2 196 330 246 380c56.5 56.5 148 56.5 204.5 0L562.8 267.7zM43.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C57 372 57 321 88.5 289.5L200.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C416.5 260.8 410 182 360 132c-56.5-56.5-148-56.5-204.5 0L43.2 244.3z" />
+</svg></a><code><span class="lowerident">with</span><span class="lowerident">_</span><span class="lowerident">default</span><span class="kw"> :</span><span class="upperident"> Maybe</span><span class="lowerident"> a</span><span class="delimiter">,</span><span class="lowerident"> a</span><span class="kw"> -&gt;</span><span class="lowerident"> a</span></code></h3><p>Extract the value from a <code>Maybe</code>, or use the provided default if <code>Nothing</code>.</p>
+</section><section><h3 id="to_result" class="entry-name" ><a href="Maybe#to_result" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor"><!--!
+	Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License -
+	https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+	Copyright 2023 Fonticons, Inc. -->
+	<path
+		d="M562.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L405.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C189.5 251.2 196 330 246 380c56.5 56.5 148 56.5 204.5 0L562.8 267.7zM43.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C57 372 57 321 88.5 289.5L200.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C416.5 260.8 410 182 360 132c-56.5-56.5-148-56.5-204.5 0L43.2 244.3z" />
+</svg></a><code><span class="lowerident">to</span><span class="lowerident">_</span><span class="lowerident">result</span><span class="kw"> :</span><span class="upperident"> Maybe</span><span class="lowerident"> a</span><span class="delimiter">,</span><span class="lowerident"> e</span><span class="kw"> -&gt;</span><span class="upperident"> Result</span><span class="lowerident"> a</span><span class="lowerident"> e</span></code></h3><p>Convert a <code>Maybe</code> to a <code>Result</code>, using the provided error value for <code>Nothing</code>.</p>
+</section><section><h3 id="from_result" class="entry-name" ><a href="Maybe#from_result" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor"><!--!
+	Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License -
+	https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+	Copyright 2023 Fonticons, Inc. -->
+	<path
+		d="M562.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L405.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C189.5 251.2 196 330 246 380c56.5 56.5 148 56.5 204.5 0L562.8 267.7zM43.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C57 372 57 321 88.5 289.5L200.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C416.5 260.8 410 182 360 132c-56.5-56.5-148-56.5-204.5 0L43.2 244.3z" />
+</svg></a><code><span class="lowerident">from</span><span class="lowerident">_</span><span class="lowerident">result</span><span class="kw"> :</span><span class="upperident"> Result</span><span class="lowerident"> a</span><span class="lowerident"> b</span><span class="kw"> -&gt;</span><span class="upperident"> Maybe</span><span class="lowerident"> a</span></code></h3><p>Convert a <code>Result</code> to a <code>Maybe</code>, discarding any error information.</p>
+</section><section><h3 id="to_option" class="entry-name" ><a href="Maybe#to_option" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor"><!--!
+	Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License -
+	https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+	Copyright 2023 Fonticons, Inc. -->
+	<path
+		d="M562.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L405.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C189.5 251.2 196 330 246 380c56.5 56.5 148 56.5 204.5 0L562.8 267.7zM43.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C57 372 57 321 88.5 289.5L200.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C416.5 260.8 410 182 360 132c-56.5-56.5-148-56.5-204.5 0L43.2 244.3z" />
+</svg></a><code><span class="lowerident">to</span><span class="lowerident">_</span><span class="lowerident">option</span><span class="kw"> :</span><span class="upperident"> Maybe</span><span class="lowerident"> a</span><span class="kw"> -&gt;</span><span class="upperident"> Option</span><span class="lowerident"> a</span></code></h3><p>Convert a <code>Maybe</code> to an <code>Option</code> from <code>roc-json</code> to be able to JSON encode it.</p>
+</section><section><h3 id="from_option" class="entry-name" ><a href="Maybe#from_option" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor"><!--!
+	Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License -
+	https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+	Copyright 2023 Fonticons, Inc. -->
+	<path
+		d="M562.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L405.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C189.5 251.2 196 330 246 380c56.5 56.5 148 56.5 204.5 0L562.8 267.7zM43.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C57 372 57 321 88.5 289.5L200.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C416.5 260.8 410 182 360 132c-56.5-56.5-148-56.5-204.5 0L43.2 244.3z" />
+</svg></a><code><span class="lowerident">from</span><span class="lowerident">_</span><span class="lowerident">option</span><span class="kw"> :</span><span class="upperident"> Option</span><span class="lowerident"> a</span><span class="kw"> -&gt;</span><span class="upperident"> Maybe</span><span class="lowerident"> a</span></code></h3><p>Convert a <code>roc-json</code> <code>Option</code> to a <code>Maybe</code>.</p>
+</section><section><h3 id="keep_justs" class="entry-name" ><a href="Maybe#keep_justs" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor"><!--!
+	Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License -
+	https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+	Copyright 2023 Fonticons, Inc. -->
+	<path
+		d="M562.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L405.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C189.5 251.2 196 330 246 380c56.5 56.5 148 56.5 204.5 0L562.8 267.7zM43.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C57 372 57 321 88.5 289.5L200.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C416.5 260.8 410 182 360 132c-56.5-56.5-148-56.5-204.5 0L43.2 244.3z" />
+</svg></a><code><span class="lowerident">keep</span><span class="lowerident">_</span><span class="lowerident">justs</span><span class="kw"> :</span><span class="upperident"> List</span><span class="delimiter"> (</span><span class="upperident">Maybe</span><span class="lowerident"> a</span><span class="delimiter">)</span><span class="kw"> -&gt;</span><span class="upperident"> List</span><span class="lowerident"> a</span></code></h3><p>Extract all <code>Just</code> values from a list, discarding <code>Nothing</code> values.
+Also known as &quot;catMaybes&quot; or &quot;flatten&quot; in other languages.
+See also: <code>combine</code> for all-or-nothing extraction.</p>
+</section><section><h3 id="or_else" class="entry-name" ><a href="Maybe#or_else" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor"><!--!
+	Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License -
+	https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+	Copyright 2023 Fonticons, Inc. -->
+	<path
+		d="M562.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L405.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C189.5 251.2 196 330 246 380c56.5 56.5 148 56.5 204.5 0L562.8 267.7zM43.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C57 372 57 321 88.5 289.5L200.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C416.5 260.8 410 182 360 132c-56.5-56.5-148-56.5-204.5 0L43.2 244.3z" />
+</svg></a><code><span class="kw">or</span><span class="lowerident">_</span><span class="kw">else</span><span class="kw"> :</span><span class="upperident"> Maybe</span><span class="lowerident"> a</span><span class="delimiter">,</span><span class="upperident"> Maybe</span><span class="lowerident"> a</span><span class="kw"> -&gt;</span><span class="upperident"> Maybe</span><span class="lowerident"> a</span></code></h3><p>Return the first <code>Maybe</code> if it's <code>Just</code>, otherwise return the second <code>Maybe</code>.</p>
+</section><section><h3 id="is_just" class="entry-name" ><a href="Maybe#is_just" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor"><!--!
+	Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License -
+	https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+	Copyright 2023 Fonticons, Inc. -->
+	<path
+		d="M562.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L405.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C189.5 251.2 196 330 246 380c56.5 56.5 148 56.5 204.5 0L562.8 267.7zM43.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C57 372 57 321 88.5 289.5L200.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C416.5 260.8 410 182 360 132c-56.5-56.5-148-56.5-204.5 0L43.2 244.3z" />
+</svg></a><code><span class="kw">is</span><span class="lowerident">_</span><span class="lowerident">just</span><span class="kw"> :</span><span class="upperident"> Maybe</span><span class="lowerident"> a</span><span class="kw"> -&gt;</span><span class="upperident"> Bool</span></code></h3></section><section><h3 id="is_nothing" class="entry-name" ><a href="Maybe#is_nothing" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor"><!--!
+	Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License -
+	https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+	Copyright 2023 Fonticons, Inc. -->
+	<path
+		d="M562.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L405.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C189.5 251.2 196 330 246 380c56.5 56.5 148 56.5 204.5 0L562.8 267.7zM43.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C57 372 57 321 88.5 289.5L200.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C416.5 260.8 410 182 360 132c-56.5-56.5-148-56.5-204.5 0L43.2 244.3z" />
+</svg></a><code><span class="kw">is</span><span class="lowerident">_</span><span class="lowerident">nothing</span><span class="kw"> :</span><span class="upperident"> Maybe</span><span class="lowerident"> a</span><span class="kw"> -&gt;</span><span class="upperident"> Bool</span></code></h3></section><section><h3 id="filter" class="entry-name" ><a href="Maybe#filter" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor"><!--!
+	Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License -
+	https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+	Copyright 2023 Fonticons, Inc. -->
+	<path
+		d="M562.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L405.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C189.5 251.2 196 330 246 380c56.5 56.5 148 56.5 204.5 0L562.8 267.7zM43.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C57 372 57 321 88.5 289.5L200.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C416.5 260.8 410 182 360 132c-56.5-56.5-148-56.5-204.5 0L43.2 244.3z" />
+</svg></a><code><span class="lowerident">filter</span><span class="kw"> :</span><span class="upperident"> Maybe</span><span class="lowerident"> a</span><span class="delimiter">,</span><span class="delimiter"> (</span><span class="lowerident">a</span><span class="kw"> -&gt;</span><span class="upperident"> Bool</span><span class="delimiter">)</span><span class="kw"> -&gt;</span><span class="upperident"> Maybe</span><span class="lowerident"> a</span></code></h3><p>Keep the <code>Just</code> value only if it satisfies the predicate, otherwise return <code>Nothing</code>.</p>
+</section><section><h3 id="filter!" class="entry-name" ><a href="Maybe#filter!" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor"><!--!
+	Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License -
+	https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+	Copyright 2023 Fonticons, Inc. -->
+	<path
+		d="M562.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L405.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C189.5 251.2 196 330 246 380c56.5 56.5 148 56.5 204.5 0L562.8 267.7zM43.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C57 372 57 321 88.5 289.5L200.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C416.5 260.8 410 182 360 132c-56.5-56.5-148-56.5-204.5 0L43.2 244.3z" />
+</svg></a><code><span class="lowerident">filter</span><span class="op">!</span><span class="kw"> :</span><span class="upperident"> Maybe</span><span class="lowerident"> a</span><span class="delimiter">,</span><span class="delimiter"> (</span><span class="lowerident">a</span><span class="kw"> =</span><span class="op">&gt;</span><span class="upperident"> Bool</span><span class="delimiter">)</span><span class="kw"> =</span><span class="op">&gt;</span><span class="upperident"> Maybe</span><span class="lowerident"> a</span></code></h3><p>Like <code>filter</code>, but with an effectful predicate.
+Most predicates don't need effects - see <code>filter</code> for the common case.</p>
+</section><section><h3 id="map2" class="entry-name" ><a href="Maybe#map2" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor"><!--!
+	Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License -
+	https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+	Copyright 2023 Fonticons, Inc. -->
+	<path
+		d="M562.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L405.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C189.5 251.2 196 330 246 380c56.5 56.5 148 56.5 204.5 0L562.8 267.7zM43.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C57 372 57 321 88.5 289.5L200.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C416.5 260.8 410 182 360 132c-56.5-56.5-148-56.5-204.5 0L43.2 244.3z" />
+</svg></a><code><span class="lowerident">map2</span><span class="kw"> :</span><span class="upperident"> 
+    Maybe</span><span class="lowerident"> a</span><span class="delimiter">,</span><span class="upperident"> 
+    Maybe</span><span class="lowerident"> b</span><span class="delimiter">,</span><span class="delimiter"> 
+    (</span><span class="lowerident">a</span><span class="delimiter">,</span><span class="lowerident"> b</span><span class="kw"> -&gt;</span><span class="lowerident"> c</span><span class="delimiter">)</span><span class="kw">
+    -&gt;</span><span class="upperident"> Maybe</span><span class="lowerident"> c</span></code></h3><p>Combine two <code>Maybe</code> values using a binary function.
+Returns <code>Just</code> with the result if both inputs are <code>Just</code>, otherwise returns <code>Nothing</code>.</p>
+</section><section><h3 id="map2!" class="entry-name" ><a href="Maybe#map2!" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor"><!--!
+	Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License -
+	https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+	Copyright 2023 Fonticons, Inc. -->
+	<path
+		d="M562.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L405.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C189.5 251.2 196 330 246 380c56.5 56.5 148 56.5 204.5 0L562.8 267.7zM43.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C57 372 57 321 88.5 289.5L200.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C416.5 260.8 410 182 360 132c-56.5-56.5-148-56.5-204.5 0L43.2 244.3z" />
+</svg></a><code><span class="lowerident">map2</span><span class="op">!</span><span class="kw"> :</span><span class="upperident"> 
+    Maybe</span><span class="lowerident"> a</span><span class="delimiter">,</span><span class="upperident"> 
+    Maybe</span><span class="lowerident"> b</span><span class="delimiter">,</span><span class="delimiter"> 
+    (</span><span class="lowerident">a</span><span class="delimiter">,</span><span class="lowerident"> b</span><span class="kw"> =</span><span class="op">&gt;</span><span class="lowerident"> c</span><span class="delimiter">)</span><span class="kw">
+    =</span><span class="op">&gt;</span><span class="upperident"> Maybe</span><span class="lowerident"> c</span></code></h3><p>Like <code>map2</code>, but with an effectful function.</p>
+</section><section><h3 id="map3" class="entry-name" ><a href="Maybe#map3" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor"><!--!
+	Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License -
+	https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+	Copyright 2023 Fonticons, Inc. -->
+	<path
+		d="M562.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L405.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C189.5 251.2 196 330 246 380c56.5 56.5 148 56.5 204.5 0L562.8 267.7zM43.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C57 372 57 321 88.5 289.5L200.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C416.5 260.8 410 182 360 132c-56.5-56.5-148-56.5-204.5 0L43.2 244.3z" />
+</svg></a><code><span class="lowerident">map3</span><span class="kw"> :</span><span class="upperident"> 
+    Maybe</span><span class="lowerident"> a</span><span class="delimiter">,</span><span class="upperident"> 
+    Maybe</span><span class="lowerident"> b</span><span class="delimiter">,</span><span class="upperident"> 
+    Maybe</span><span class="lowerident"> c</span><span class="delimiter">,</span><span class="delimiter">     
+    (</span><span class="lowerident">a</span><span class="delimiter">,</span><span class="lowerident"> 
+    b</span><span class="delimiter">,</span><span class="lowerident"> 
+    c</span><span class="kw">
+    -&gt;</span><span class="lowerident"> d</span><span class="delimiter">)</span><span class="kw">
+    -&gt;</span><span class="upperident"> Maybe</span><span class="lowerident"> d</span></code></h3><p>Combine three <code>Maybe</code> values with a function.
+Returns <code>Just</code> with the result if all three inputs are <code>Just</code>, otherwise returns <code>Nothing</code>.</p>
+</section><section><h3 id="map3!" class="entry-name" ><a href="Maybe#map3!" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor"><!--!
+	Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License -
+	https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+	Copyright 2023 Fonticons, Inc. -->
+	<path
+		d="M562.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L405.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C189.5 251.2 196 330 246 380c56.5 56.5 148 56.5 204.5 0L562.8 267.7zM43.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C57 372 57 321 88.5 289.5L200.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C416.5 260.8 410 182 360 132c-56.5-56.5-148-56.5-204.5 0L43.2 244.3z" />
+</svg></a><code><span class="lowerident">map3</span><span class="op">!</span><span class="kw"> :</span><span class="upperident"> 
+    Maybe</span><span class="lowerident"> a</span><span class="delimiter">,</span><span class="upperident"> 
+    Maybe</span><span class="lowerident"> b</span><span class="delimiter">,</span><span class="upperident"> 
+    Maybe</span><span class="lowerident"> c</span><span class="delimiter">,</span><span class="delimiter">     
+    (</span><span class="lowerident">a</span><span class="delimiter">,</span><span class="lowerident"> 
+    b</span><span class="delimiter">,</span><span class="lowerident"> 
+    c</span><span class="kw">
+    =</span><span class="op">&gt;</span><span class="lowerident"> d</span><span class="delimiter">)</span><span class="kw">
+    =</span><span class="op">&gt;</span><span class="upperident"> Maybe</span><span class="lowerident"> d</span></code></h3><p>Like <code>map3</code>, but with an effectful function.</p>
+</section><section><h3 id="map4" class="entry-name" ><a href="Maybe#map4" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor"><!--!
+	Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License -
+	https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+	Copyright 2023 Fonticons, Inc. -->
+	<path
+		d="M562.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L405.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C189.5 251.2 196 330 246 380c56.5 56.5 148 56.5 204.5 0L562.8 267.7zM43.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C57 372 57 321 88.5 289.5L200.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C416.5 260.8 410 182 360 132c-56.5-56.5-148-56.5-204.5 0L43.2 244.3z" />
+</svg></a><code><span class="lowerident">map4</span><span class="kw"> :</span><span class="upperident"> 
+    Maybe</span><span class="lowerident"> a</span><span class="delimiter">,</span><span class="upperident"> 
+    Maybe</span><span class="lowerident"> b</span><span class="delimiter">,</span><span class="upperident"> 
+    Maybe</span><span class="lowerident"> c</span><span class="delimiter">,</span><span class="upperident"> 
+    Maybe</span><span class="lowerident"> d</span><span class="delimiter">,</span><span class="delimiter">     
+    (</span><span class="lowerident">a</span><span class="delimiter">,</span><span class="lowerident"> 
+    b</span><span class="delimiter">,</span><span class="lowerident"> 
+    c</span><span class="delimiter">,</span><span class="lowerident"> 
+    d</span><span class="kw">
+    -&gt;</span><span class="lowerident"> e</span><span class="delimiter">)</span><span class="kw">
+    -&gt;</span><span class="upperident"> Maybe</span><span class="lowerident"> e</span></code></h3><p>Combine four <code>Maybe</code> values with a function.
+Returns <code>Just</code> with the result if all four inputs are <code>Just</code>, otherwise returns <code>Nothing</code>.</p>
+</section><section><h3 id="map4!" class="entry-name" ><a href="Maybe#map4!" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor"><!--!
+	Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License -
+	https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+	Copyright 2023 Fonticons, Inc. -->
+	<path
+		d="M562.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L405.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C189.5 251.2 196 330 246 380c56.5 56.5 148 56.5 204.5 0L562.8 267.7zM43.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C57 372 57 321 88.5 289.5L200.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C416.5 260.8 410 182 360 132c-56.5-56.5-148-56.5-204.5 0L43.2 244.3z" />
+</svg></a><code><span class="lowerident">map4</span><span class="op">!</span><span class="kw"> :</span><span class="upperident"> 
+    Maybe</span><span class="lowerident"> a</span><span class="delimiter">,</span><span class="upperident"> 
+    Maybe</span><span class="lowerident"> b</span><span class="delimiter">,</span><span class="upperident"> 
+    Maybe</span><span class="lowerident"> c</span><span class="delimiter">,</span><span class="upperident"> 
+    Maybe</span><span class="lowerident"> d</span><span class="delimiter">,</span><span class="delimiter">     
+    (</span><span class="lowerident">a</span><span class="delimiter">,</span><span class="lowerident"> 
+    b</span><span class="delimiter">,</span><span class="lowerident"> 
+    c</span><span class="delimiter">,</span><span class="lowerident"> 
+    d</span><span class="kw">
+    =</span><span class="op">&gt;</span><span class="lowerident"> e</span><span class="delimiter">)</span><span class="kw">
+    =</span><span class="op">&gt;</span><span class="upperident"> Maybe</span><span class="lowerident"> e</span></code></h3><p>Like <code>map4</code>, but with an effectful function.</p>
+</section><section><h3 id="combine" class="entry-name" ><a href="Maybe#combine" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor"><!--!
+	Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License -
+	https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+	Copyright 2023 Fonticons, Inc. -->
+	<path
+		d="M562.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L405.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C189.5 251.2 196 330 246 380c56.5 56.5 148 56.5 204.5 0L562.8 267.7zM43.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C57 372 57 321 88.5 289.5L200.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C416.5 260.8 410 182 360 132c-56.5-56.5-148-56.5-204.5 0L43.2 244.3z" />
+</svg></a><code><span class="lowerident">combine</span><span class="kw"> :</span><span class="upperident"> List</span><span class="delimiter"> (</span><span class="upperident">Maybe</span><span class="lowerident"> a</span><span class="delimiter">)</span><span class="kw"> -&gt;</span><span class="upperident"> Maybe</span><span class="delimiter"> (</span><span class="upperident">List</span><span class="lowerident"> a</span><span class="delimiter">)</span></code></h3><p>Convert a list of <code>Maybe</code> values to a <code>Maybe</code> of a list.
+Returns <code>Just</code> with all values if all elements are <code>Just</code>, otherwise returns <code>Nothing</code>.
+See also: <code>keep_justs</code> for partial extraction, <code>traverse</code> for mapping with Maybe, and <code>map_try</code> for Maybe-Result traverse.</p>
+</section><section><h3 id="traverse" class="entry-name" ><a href="Maybe#traverse" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor"><!--!
+	Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License -
+	https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+	Copyright 2023 Fonticons, Inc. -->
+	<path
+		d="M562.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L405.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C189.5 251.2 196 330 246 380c56.5 56.5 148 56.5 204.5 0L562.8 267.7zM43.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C57 372 57 321 88.5 289.5L200.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C416.5 260.8 410 182 360 132c-56.5-56.5-148-56.5-204.5 0L43.2 244.3z" />
+</svg></a><code><span class="lowerident">traverse</span><span class="kw"> :</span><span class="upperident"> List</span><span class="lowerident"> a</span><span class="delimiter">,</span><span class="delimiter"> (</span><span class="lowerident">a</span><span class="kw"> -&gt;</span><span class="upperident"> Maybe</span><span class="lowerident"> b</span><span class="delimiter">)</span><span class="kw"> -&gt;</span><span class="upperident"> Maybe</span><span class="delimiter"> (</span><span class="upperident">List</span><span class="lowerident"> b</span><span class="delimiter">)</span></code></h3><p>Map a function over a list, then combine the resulting list.
+Returns <code>Just</code> with the transformed list if all applications succeed, otherwise returns <code>Nothing</code>.
+Equivalent to mapping then combining: <code>traverse(list, f) == combine(List.map(list, f))</code>.
+See also: <code>combine</code> for just unwrapping or <code>map_try</code> for the Maybe-Result traverse.</p>
+</section><section><h3 id="traverse!" class="entry-name" ><a href="Maybe#traverse!" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor"><!--!
+	Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License -
+	https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+	Copyright 2023 Fonticons, Inc. -->
+	<path
+		d="M562.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L405.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C189.5 251.2 196 330 246 380c56.5 56.5 148 56.5 204.5 0L562.8 267.7zM43.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C57 372 57 321 88.5 289.5L200.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C416.5 260.8 410 182 360 132c-56.5-56.5-148-56.5-204.5 0L43.2 244.3z" />
+</svg></a><code><span class="lowerident">traverse</span><span class="op">!</span><span class="kw"> :</span><span class="upperident"> List</span><span class="lowerident"> a</span><span class="delimiter">,</span><span class="delimiter"> (</span><span class="lowerident">a</span><span class="kw"> =</span><span class="op">&gt;</span><span class="upperident"> Maybe</span><span class="lowerident"> b</span><span class="delimiter">)</span><span class="kw"> =</span><span class="op">&gt;</span><span class="upperident"> Maybe</span><span class="delimiter"> (</span><span class="upperident">List</span><span class="lowerident"> b</span><span class="delimiter">)</span></code></h3><p>Like <code>traverse</code>, but with an effectful function.</p>
+</section>
+        <footer>
+            <p>Made by people who like to make nice things.</p>
+        </footer>
+    </main>
+</body>
+
+</html>

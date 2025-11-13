@@ -1,0 +1,191 @@
+# LLM Docs
+
+## Compact Docs
+
+Copy just this section if you want to keep your context small.
+If you want all docs, check the section `Full Docs per Module` below.
+
+Maybe.Maybe : [ Nothing, Just a ]
+Maybe.map : Maybe a, (a -> b) -> Maybe b
+Maybe.map! : Maybe a, (a => b) => Maybe b
+Maybe.join : Maybe (Maybe a) -> Maybe a
+Maybe.and_then : Maybe a, (a -> Maybe b) -> Maybe b
+Maybe.and_then! : Maybe a, (a => Maybe b) => Maybe b
+Maybe.map_try! : Maybe a, (a => Result b e) => Result (Maybe b) e
+Maybe.map_try : Maybe a, (a -> Result b e) -> Result (Maybe b) e
+Maybe.with_default : Maybe a, a -> a
+Maybe.to_result : Maybe a, e -> Result a e
+Maybe.from_result : Result a b -> Maybe a
+Maybe.to_option : Maybe a -> Option a
+Maybe.from_option : Option a -> Maybe a
+Maybe.keep_justs : List (Maybe a) -> List a
+Maybe.or_else : Maybe a, Maybe a -> Maybe a
+Maybe.is_just : Maybe a -> Bool
+Maybe.is_nothing : Maybe a -> Bool
+Maybe.filter : Maybe a, (a -> Bool) -> Maybe a
+Maybe.filter! : Maybe a, (a => Bool) => Maybe a
+Maybe.map2 : Maybe a, Maybe b, (a, b -> c) -> Maybe c
+Maybe.map2! : Maybe a, Maybe b, (a, b => c) => Maybe c
+Maybe.map3 : Maybe a, Maybe b, Maybe c, (a, b, c -> d) -> Maybe d
+Maybe.map3! : Maybe a, Maybe b, Maybe c, (a, b, c => d) => Maybe d
+Maybe.map4 : Maybe a, Maybe b, Maybe c, Maybe d, (a, b, c, d -> e) -> Maybe e
+Maybe.map4! : Maybe a, Maybe b, Maybe c, Maybe d, (a, b, c, d => e) => Maybe e
+Maybe.combine : List (Maybe a) -> Maybe (List a)
+Maybe.traverse : List a, (a -> Maybe b) -> Maybe (List b)
+Maybe.traverse! : List a, (a => Maybe b) => Maybe (List b)
+
+## Full Docs per Module
+### Maybe
+
+Maybe : [ Nothing, Just a ]
+
+Description:
+Represents an optional value of a given type. A `Maybe Fruit` can be `Just Apple`, `Just Orange`, or `Nothing` for example. Also known as `Option`.
+
+map : Maybe a, (a -> b) -> Maybe b
+
+Description:
+Transform the value inside a `Just`, or do nothing if `Nothing`.
+
+map! : Maybe a, (a => b) => Maybe b
+
+Description:
+Like `map`, but with an effectful function.
+
+join : Maybe (Maybe a) -> Maybe a
+
+Description:
+Flatten nested `Maybe`s.
+
+and_then : Maybe a, (a -> Maybe b) -> Maybe b
+
+Description:
+Chain together `Maybe`-returning functions.
+If the `Maybe` is `Just`, applies the function to the value.
+If the `Maybe` is `Nothing`, returns `Nothing` without calling the function.
+This is equivalent to `map` followed by `join`, but more efficient.
+Also known as "flatMap" or "bind" in other languages.
+
+and_then! : Maybe a, (a => Maybe b) => Maybe b
+
+Description:
+Like `and_then`, but with an effectful function.
+Also known as "flatMap" or "bind" in other languages.
+
+map_try! : Maybe a, (a => Result b e) => Result (Maybe b) e
+
+Description:
+Like `map_try`, but with an effectful function.
+See also: `traverse` for lists, `map_try` for the pure version.
+
+map_try : Maybe a, (a -> Result b e) -> Result (Maybe b) e
+
+Description:
+Transform the value inside a `Just` using a fallible function, preserving the `Maybe` context.
+See also: `traverse` for lists, `map_try!` for the effectful version.
+
+with_default : Maybe a, a -> a
+
+Description:
+Extract the value from a `Maybe`, or use the provided default if `Nothing`.
+
+to_result : Maybe a, e -> Result a e
+
+Description:
+Convert a `Maybe` to a `Result`, using the provided error value for `Nothing`.
+
+from_result : Result a b -> Maybe a
+
+Description:
+Convert a `Result` to a `Maybe`, discarding any error information.
+
+to_option : Maybe a -> Option a
+
+Description:
+Convert a `Maybe` to an `Option` from `roc-json` to be able to JSON encode it.
+
+from_option : Option a -> Maybe a
+
+Description:
+Convert a `roc-json` `Option` to a `Maybe`.
+
+keep_justs : List (Maybe a) -> List a
+
+Description:
+Extract all `Just` values from a list, discarding `Nothing` values.
+Also known as "catMaybes" or "flatten" in other languages.
+See also: `combine` for all-or-nothing extraction.
+
+or_else : Maybe a, Maybe a -> Maybe a
+
+Description:
+Return the first `Maybe` if it's `Just`, otherwise return the second `Maybe`.
+
+is_just : Maybe a -> Bool
+
+is_nothing : Maybe a -> Bool
+
+filter : Maybe a, (a -> Bool) -> Maybe a
+
+Description:
+Keep the `Just` value only if it satisfies the predicate, otherwise return `Nothing`.
+
+filter! : Maybe a, (a => Bool) => Maybe a
+
+Description:
+Like `filter`, but with an effectful predicate.
+Most predicates don't need effects - see `filter` for the common case.
+
+map2 : Maybe a, Maybe b, (a, b -> c) -> Maybe c
+
+Description:
+Combine two `Maybe` values using a binary function.
+Returns `Just` with the result if both inputs are `Just`, otherwise returns `Nothing`.
+
+map2! : Maybe a, Maybe b, (a, b => c) => Maybe c
+
+Description:
+Like `map2`, but with an effectful function.
+
+map3 : Maybe a, Maybe b, Maybe c, (a, b, c -> d) -> Maybe d
+
+Description:
+Combine three `Maybe` values with a function.
+Returns `Just` with the result if all three inputs are `Just`, otherwise returns `Nothing`.
+
+map3! : Maybe a, Maybe b, Maybe c, (a, b, c => d) => Maybe d
+
+Description:
+Like `map3`, but with an effectful function.
+
+map4 : Maybe a, Maybe b, Maybe c, Maybe d, (a, b, c, d -> e) -> Maybe e
+
+Description:
+Combine four `Maybe` values with a function.
+Returns `Just` with the result if all four inputs are `Just`, otherwise returns `Nothing`.
+
+map4! : Maybe a, Maybe b, Maybe c, Maybe d, (a, b, c, d => e) => Maybe e
+
+Description:
+Like `map4`, but with an effectful function.
+
+combine : List (Maybe a) -> Maybe (List a)
+
+Description:
+Convert a list of `Maybe` values to a `Maybe` of a list.
+Returns `Just` with all values if all elements are `Just`, otherwise returns `Nothing`.
+See also: `keep_justs` for partial extraction, `traverse` for mapping with Maybe, and `map_try` for Maybe-Result traverse.
+
+traverse : List a, (a -> Maybe b) -> Maybe (List b)
+
+Description:
+Map a function over a list, then combine the resulting list.
+Returns `Just` with the transformed list if all applications succeed, otherwise returns `Nothing`.
+Equivalent to mapping then combining: `traverse(list, f) == combine(List.map(list, f))`.
+See also: `combine` for just unwrapping or `map_try` for the Maybe-Result traverse.
+
+traverse! : List a, (a => Maybe b) => Maybe (List b)
+
+Description:
+Like `traverse`, but with an effectful function.
+
