@@ -9,7 +9,7 @@ Note that Roc has a great type system and using descriptive [tag unions](https:/
 ```roc
 app [main!] {
     pf: platform "https://github.com/roc-lang/basic-cli/releases/download/0.20.0/X73hGh05nNTkDHU06FHC0YfFaQB1pimX7gncRcao5mU.tar.br",
-    maybe: "https://github.com/niclas-ahden/roc-maybe/releases/download/0.1.0/QbjfB928rAw71_NyBagk498PX-_VkgaF8CW1W4CqiHI.tar.br",
+    maybe: "https://github.com/niclas-ahden/roc-maybe/releases/download/0.1.0/9_PIjOoSLU-EjE8tpApdDXIk1zlSwEqBewRuxJ0FIx8.tar.br",
 }
 
 import pf.Stdout
