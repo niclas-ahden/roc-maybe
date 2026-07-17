@@ -4,28 +4,25 @@ app [main!] {
 }
 
 import pf.Stdout
-import maybe.Maybe
+import maybe.Maybe exposing [Maybe]
 
 Person : {
 	name : Str,
-	hobby : Maybe.Maybe(Str),
+	hobby : Maybe(Str),
 }
 
 search_your_soul : Person -> Str
 search_your_soul = |person| {
 	actual_hobby = 
-		Maybe.with_default(
-			Maybe.map(person.hobby, |hobby| "${hobby} and Diablo II"),
-			"Diablo II",
-		)
+		person
+			.hobby
+			.map(|hobby| "${hobby} and Diablo II")
+			.with_default("Diablo II")
 
 	"${person.name} enjoys ${actual_hobby}"
 }
 
 main! = |_args| {
-	Stdout.line!("=== Maybe Package Demo ===")
-
-	people : List(Person)
 	people = [
 		{ name: "Alice", hobby: Just("Red wine") },
 		{ name: "Bob", hobby: Just("Charcuterie") },
