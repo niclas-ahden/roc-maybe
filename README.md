@@ -2,7 +2,9 @@
 
 A package for working ergonomically with optional values in Roc. The `Maybe` type represents a value that may or may not exist.
 
-Note that Roc has a great type system and using descriptive [tag unions](https://www.roc-lang.org/tutorial#tag-union-types), [tags with payloads](https://www.roc-lang.org/tutorial#tags-with-payloads), and/or `Try` is usually preferable to `Maybe`. If you're new to Roc I encourage you to explore those options first. If you still want a `Maybe`: enjoy!
+Note that Roc has a great type system and using descriptive [tag unions](https://www.roc-lang.org/tutorial#tag-union-types), [tags with payloads](https://www.roc-lang.org/tutorial#tags-with-payloads), and/or `Try` is almost always preferable to `Maybe`. If you're new to Roc I encourage you to explore those options first, and please see this [FAQ entry which explains why Roc doesn't have a built-in `Maybe`](https://roc-lang.org/faq#option-type).
+
+If you still want a `Maybe`: enjoy!
 
 ## Example usage
 
