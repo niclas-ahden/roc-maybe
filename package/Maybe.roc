@@ -95,6 +95,42 @@ Maybe(a) := [
 			Err(_) => Nothing
 		}
 
+	## Convert a `Maybe` to a `Try`, using the provided error value for `Nothing`.
+	to_try : Maybe(a), e -> Try(a, e)
+	to_try = |m, e|
+		match m {
+			Just(a) => Ok(a)
+			Nothing => Err(e)
+		}
+
+	## Convert a `Try` to a `Maybe`, discarding any error information.
+	from_try : Try(a, b) -> Maybe(a)
+	from_try = |result|
+		match result {
+			Ok(v) => Just(v)
+			Err(_) => Nothing
+		}
+
+	## Returns `Bool.True` if both values are `Nothing`, or both are `Just`
+	## with equal contents. Otherwise, returns `Bool.False`.
+	is_eq : Maybe(a), Maybe(a) -> Bool
+		where [a.is_eq : a, a -> Bool]
+	is_eq = |ma, mb|
+		match ma {
+			Just(a) => {
+				match mb {
+					Just(b) => a.is_eq(b)
+					Nothing => False
+				}
+			}
+			Nothing => {
+				match mb {
+					Just(_) => False
+					Nothing => True
+				}
+			}
+		}
+
 	## Extract all `Just` values from a list, discarding `Nothing` values.
 	## Also known as "catMaybes" or "flatten" in other languages.
 	## See also: `combine` for all-or-nothing extraction.
