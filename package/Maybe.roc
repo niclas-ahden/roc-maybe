@@ -131,6 +131,50 @@ Maybe(a) := [
 			}
 		}
 
+	## Parse a `Maybe(a)` from a format that supports null (such as the
+	## builtin Json): a null becomes `Nothing`, anything else parses as an
+	## `a` and becomes `Just`.
+	parser_for : encoding -> (state -> Try({ value : Maybe(a), rest : state }, [InvalidJson(Str), MissingRequiredField(Str), ..]))
+		where [
+			a.parser_for : encoding -> (state -> Try({ value : a, rest : state }, [InvalidJson(Str), MissingRequiredField(Str)])),
+			encoding.parse_null : encoding, state -> Try(state, [InvalidJson(Str)]),
+		]
+	parser_for = |encoding| {
+		Elem : a
+		parse_elem = Elem.parser_for(encoding)
+
+		|state|
+			match encoding.parse_null(state) {
+				Ok(rest) => Ok({ value: Nothing, rest })
+				Err(InvalidJson(_)) =>
+					match parse_elem(state) {
+						Ok(parsed) => Ok({ value: Just(parsed.value), rest: parsed.rest })
+						Err(InvalidJson(e)) => Err(InvalidJson(e))
+						Err(MissingRequiredField(f)) => Err(MissingRequiredField(f))
+					}
+			}
+	}
+
+	## Encode a `Maybe(a)` for a format that supports null (such as the
+	## builtin Json): `Nothing` encodes as null, `Just(a)` encodes as the
+	## `a` itself.
+	encoder_for : encoding -> (Maybe(a), state -> Try(state, err))
+		where [
+			a.encoder_for : encoding -> (a, state -> Try(state, err)),
+			encoding.encode_null : state -> Try(state, err),
+		]
+	encoder_for = |encoding| {
+		Encoding : encoding
+		Elem : a
+		encode_elem = Elem.encoder_for(encoding)
+
+		|m, state|
+			match m {
+				Just(v) => encode_elem(v, state)
+				Nothing => Encoding.encode_null(state)
+			}
+	}
+
 	## Extract all `Just` values from a list, discarding `Nothing` values.
 	## Also known as "catMaybes" or "flatten" in other languages.
 	## See also: `combine` for all-or-nothing extraction.
@@ -425,3 +469,58 @@ expect {
 
 # Order preservation
 expect Maybe.traverse([3, 1, 2], |x| Just(x * 2)) == Just([6, 2, 4])
+
+# --- JSON codecs: null <-> Nothing, value <-> Just ---
+
+expect {
+	decoded : Try(Maybe(U64), _)
+	decoded = Json.parse("null")
+	match decoded {
+		Ok(Nothing) => Bool.True
+		_ => Bool.False
+	}
+}
+
+expect {
+	decoded : Try(Maybe(U64), _)
+	decoded = Json.parse("7")
+	match decoded {
+		Ok(Just(7)) => Bool.True
+		_ => Bool.False
+	}
+}
+
+expect {
+	value : Maybe(U64)
+	value = Just(7)
+	Json.to_str(value) == "7"
+}
+
+expect {
+	value : Maybe(U64)
+	value = Nothing
+	Json.to_str(value) == "null"
+}
+
+# A Maybe field inside a record derives with the rest of the record.
+expect {
+	decoded : Try({ name : Str, size : Maybe(U64) }, _)
+	decoded = Json.parse("{\"name\":\"a\",\"size\":null}")
+	match decoded {
+		Ok({ name, size }) => name == "a" and size == Nothing
+		_ => Bool.False
+	}
+}
+
+# A Maybe field inside a record encodes with the custom encoder_for.
+expect {
+	value : { title : Str, count : Maybe(U64) }
+	value = { title: "a", count: Just(9) }
+	Json.to_str(value) == "{\"count\":9,\"title\":\"a\"}"
+}
+
+expect {
+	value : { title : Str, count : Maybe(U64) }
+	value = { title: "a", count: Nothing }
+	Json.to_str(value) == "{\"count\":null,\"title\":\"a\"}"
+}
