@@ -13,7 +13,7 @@ Person : {
 
 search_your_soul : Person -> Str
 search_your_soul = |person| {
-	actual_hobby = 
+	actual_hobby =
 		person
 			.hobby
 			.map(|hobby| "${hobby} and Diablo II")

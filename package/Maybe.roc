@@ -134,7 +134,7 @@ Maybe(a) := [
 	## Parse a `Maybe(a)` from a format that supports null (such as the
 	## builtin Json): a null becomes `Nothing`, anything else parses as an
 	## `a` and becomes `Just`.
-	parser_for : encoding -> (state -> Try({ value : Maybe(a), rest : state }, [InvalidJson(Str), MissingRequiredField(Str), ..]))
+	parser_for : encoding -> (state -> Try({ value : Maybe(a), rest : state }, [InvalidJson(Str), MissingRequiredField(Str)]))
 		where [
 			a.parser_for : encoding -> (state -> Try({ value : a, rest : state }, [InvalidJson(Str), MissingRequiredField(Str)])),
 			encoding.parse_null : encoding, state -> Try(state, [InvalidJson(Str)]),
@@ -146,12 +146,13 @@ Maybe(a) := [
 		|state|
 			match encoding.parse_null(state) {
 				Ok(rest) => Ok({ value: Nothing, rest })
-				Err(InvalidJson(_)) =>
+				Err(InvalidJson(_)) => {
 					match parse_elem(state) {
 						Ok(parsed) => Ok({ value: Just(parsed.value), rest: parsed.rest })
 						Err(InvalidJson(e)) => Err(InvalidJson(e))
 						Err(MissingRequiredField(f)) => Err(MissingRequiredField(f))
 					}
+				}
 			}
 	}
 
