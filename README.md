@@ -10,8 +10,8 @@ If you still want a `Maybe`: enjoy!
 
 ```roc
 app [main!] {
-    pf: platform "https://github.com/roc-lang/basic-cli/releases/download/0.26.0/GddgvsGjiNXrHFW6au5i5dUDbTs8FinQdrgE2Gqmw53t.tar.zst",
-    maybe: "https://github.com/niclas-ahden/roc-maybe/releases/download/1.1.2/7gJRWDM6NXtMU9dZy2i49yeCfP7aWcA1aVsXPWyWUYKS.tar.zst",
+    pf: platform "https://github.com/roc-lang/basic-cli/releases/download/0.28.0/2yhxoR7cZPSYbyUzPWULFw8AA6QEcdsgFNRmzu7pZbst.tar.zst",
+    maybe: "https://github.com/niclas-ahden/roc-maybe/releases/download/1.1.3/FD2xrazgDzwmtvDZ1tWnHfDZr4RyVzgnwn6zKYvhawGh.tar.zst",
 }
 
 import pf.Stdout
